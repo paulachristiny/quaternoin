@@ -190,3 +190,5 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable (quat src/quat2yaw.cpp)
 target_link_libraries(quat ${catkin_LIBRARIES})
+add_executable (go src/go2point.cpp)
+target_link_libraries(go ${catkin_LIBRARIES})

@@ -5,7 +5,7 @@
 
 void odomCallBack(const nav_msgs::OdometryConstPtr &msg)
 {
-   geometry_msgs::Quaternion qt;
+    geometry_msgs::Quaternion qt;
     qt = msg->pose.pose.orientation;
     double yaw = tf::getYaw(qt);
     std::cout << "Yaw: " << yaw*180/M_PI<< std::endl;
