@@ -28,6 +28,14 @@ void odomCallBack(const nav_msgs::OdometryConstPtr &msg)
     double d = calculateDistance (x,y,xf,yf);
     double angle = atan2(yf-y,xf-x);
     double deltaAngle = angle - yaw;
+    if ((deltaAngle)>180)
+    {
+        deltaAngle -=360;
+    }
+    else if ((deltaAngle)<-180)
+    {
+        deltaAngle +=360;
+    }
     if (d > 0.1){
         double w = k*deltaAngle;
         robotspeed.angular.z = w;
