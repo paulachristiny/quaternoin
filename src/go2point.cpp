@@ -39,8 +39,16 @@ void odomCallBack(const nav_msgs::OdometryConstPtr &msg)
     if (d > 0.1){
         double w = k*deltaAngle;
         robotspeed.angular.z = w;
-        double v = 1;
-        robotspeed.linear.x = v;
+        if (d > 0.5)
+        {
+            double v = 1;
+            robotspeed.linear.x = v;
+        }
+        else if (0.5 < d< 0.1)
+        {
+            double v = 0.3;
+            robotspeed.linear.x = v;
+        }
     }
     else
     {
